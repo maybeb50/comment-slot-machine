@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/* @import url(http://fonts.googleapis.com/css?family=Pathway+Gothic+One); */
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+code {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: rgba(245, 245, 245, 0.7) !important;
+  text-align: left;
+}
+
+.well {
+  padding: 25px;
+  background-color: rgba(245, 245, 245, 0.7);
+  border-radius: 5px;
+}
+
+.well p {
+  font-size:
+}
+
+.btn-group-justified {
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+a{
+  color: #ccd500;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+  color: #a9b119;
+}
+
+html, body {
+    overflow:hidden;
+}
+
+body {
+    background:#030323;
+}
+
+/*
+ * Casino
+ */
+#casino {
+  /* border-top: 20px dashed rgb(180, 75, 119);
+  border-bottom: 10px solid #A48E4E;
+  background-color: rgb(240, 150, 150); */
+}
+
+#casino h1 {
+    margin-left:-40px;
+}
+
+#casino .content {
+    position: relative;
+    width:533px;
+    margin:100px auto;
+}
+
+.machineContainer{
+  padding: 5px 1px 5px 1px;
+  height: 135px;
+}
+
+.casino-box {
+    position: relative;
+    width:533px;
+    /* width:100%; */
+    height:411px;
+    background:url('../img/machine.png') no-repeat center center;
+}
+
+.slotMachine {
+    position: absolute;
+    top:188px;
+    left:57px;
+    width: 66.2%;
+    height: 50px;
+    border: 2px dotted #CF5178;
+    display: inline-block;
+}
+
+.slotMachine .slot{
+    overflow:hidden;
+    width:100%;
+    height:50px;
+    line-height:50px;
+    padding:0 2%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+
+}
+
+#casino .btn-group {
+  position: absolute;
+  top:190px; 
+  right:-200px;
+}
+
+#casino .btn-group .btn {
+  display:block;
+  border: none;
+  background-color: rgb(209, 79, 119);
+  text-transform: uppercase;
+}
+
+#casino .btn-group .btn:hover, .btn-group .btn:focus {
+  background-color: rgb(180, 75, 119);
+}
+
+.dot {
+    width:10px;
+    height:10px;
+    position:absolute;
+    top:0;
+    left:0;
+    /* background: url(http://www.clipartqueen.com/image-files/red-lobed-fall-clipart-leaf.png); */
+    background: url('../img/flower.png');
+    background-size: 100% 100%;
+  }
+
+  .winner {
+    display:none;
+    position:fixed;
+    top:20%;
+    left:50%;  
+    width:300px;
+    height:300px;
+    border-radius:10px;
+    margin-left:-180px;
+    background:rgba(3, 3, 35)
+  }
+
+  .winner > p {
+    margin-top:100px;
+    text-align:center;
+    font-size:30px;
+    color:#fff;
+  }
+
+  .winner .winner-name {
+      margin-top:10px;
+      text-align:center;
+      font-size:30px;
+      color:#fff;
+  }
+
+  .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size:40px;
+      color:#fff;
+  }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Comment Slot Machine</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/jquery.slotmachine.css" type="text/css" media="screen" />
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/slotmachine.js"></script>
+	<script src="js/jquery.slotmachine.js"></script>
+	<script src="js/lib/gsap/TweenMax.min.js"></script>
+	<script src="js/random-picker.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<!-- Slot machine example -->
+		<div id="casino">
+			<div class="content">
+				<h1><img src="./img/logo.png" alt=""></h1>
+				<div class="casino-box">
+					<div id="casino1" class="slotMachine"></div>
+					<!-- button box -->
+					<div class="btn-group btn-group-justified" role="group">
+						<button id="casinoShuffle" type="button" class="btn btn-primary btn-lg">Shuffle</button>
+						<button id="casinoStop" type="button" class="btn btn-primary btn-lg">stop</button>
+					</div>
+					<!-- e: button box -->
+				</div>
+			</div>
+		</div>
+
+		<!-- result popup -->
+		<div class="winner">
+			<p>축하합니다!</p>
+			<div class="winner-name">아무개</div>
+			<button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+		</div>
+		<!-- e: result popup -->
+	</div>
+</body>
+</html>
