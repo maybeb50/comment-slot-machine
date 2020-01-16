@@ -1,13 +1,5 @@
 $(document).ready(function() {
 
-	const comment = [
-		{'id': '박봉현', 'message': '모두 행복한 연말 보내세요!'},
-		{'id': '이태규', 'message': '올해는 1번이 많네요'},
-		{'id': '홍길동', 'message': 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ'},
-		{'id': '비욘세', 'message': '간편하고 위생적인 여행용 티슈'},
-		{'id': '고구마', 'message': 'simply dummy text of the printing and typesetting industry. Lorem Ipsum h'},
-	];
-
 	const btnShuffle = document.querySelector('#casinoShuffle');
 	const btnStop = document.querySelector('#casinoStop');
 	const casino1 = document.querySelector('#casino1');
@@ -20,13 +12,22 @@ $(document).ready(function() {
 
 	function opnePopup(winner) {
 		setTimeout(function() {
-			console.log(comment[winner].id);
-			$('.winner-name').text(comment[winner].id);
+			// console.log('winner', winner);
+			// console.log('commentList.length', commentList.length);
+
+			if(winner === commentList.length) {
+				$('.winner-name').text(commentList[0].name);
+			} else {
+				$('.winner-name').text(commentList[winner].name);
+			};
+			
 			$('.winner').show();
-		}, 600)
+		}, 700);
 	}
 
 	function onComplete(active) {
+		console.log('onComplete 실행');
+
 		falling = true;
 		TweenLite.set('#wrapper', {perspective: 500})
 		TweenLite.set('.dot', {xPercent:'-50%',yPercent:'-50%'})
@@ -50,29 +51,40 @@ $(document).ready(function() {
 	function animmDel() {
 		TweenMax.killAll();
 		$('.dot').remove();
+		$('.winner-name').text('');
 	}
 
 	function R(min,max) {return min+Math.random()*(max-min)};
 
 	function slot() {
-		const mCasino1 = new SlotMachine(casino1, {
+		mCasino1 = new SlotMachine(casino1, {
 			active: 0,
 			auto: false,
 		});
 
-		btnShuffle.addEventListener('click', () => {
-			animmDel();
-			mCasino1.shuffle(9999);
-		});
+		$('.slotMachineContainer').children().eq(2).addClass('on');
 
-		btnStop.addEventListener('click', () => {
-			mCasino1.stop(onComplete);
+		btnShuffle.addEventListener('click', () => {
+			const randomNum = Math.ceil(Math.random()*(20-10+1))+10;
+			console.log(randomNum);
+			$('.winner').hide();
+			animmDel();
+			mCasino1.shuffle(randomNum, function(active) {
+				stop(active+1);
+			});
 		});
+		// btnStop.addEventListener('click', () => {
+		// 	mCasino1.stop(onComplete);
+		// });
+	}
+	
+	function stop(active) {
+		onComplete(active);
 	}
 
 	function init() {
-		for(let i = 0; i < comment.length; i++) {
-			$('#casino1').append('<div class="slot">'+comment[i].id+' : '+comment[i].message+'</div>');
+		for(let i = 0; i < commentList.length; i++) {
+			$('#casino1').append('<div class="slot">'+commentList[i].name+' : '+commentList[i].comment+'</div>');
 		};
 
 		slot();
